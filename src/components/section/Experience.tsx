@@ -11,35 +11,35 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: 'Your Job Title',
-      company: 'Company Name',
-      location: 'City, State',
-      period: 'Month Year - Month Year',
+      title: 'Intern, AI Agents',
+      company: 'Wipro',
+      location: '',
+      period: 'Internship',
       description: [
-        'Description of your role and accomplishments',
+        'Building AI agents as part of the internship',
+        'Working through certifications and skill-building for agent development',
       ],
     },
     {
-      title: 'Your Job Title',
-      company: 'Company Name',
-      location: 'City, State',
-      period: 'Month Year - Month Year',
-      description: [
-        'Description of your role and accomplishments',
-        'Another accomplishment or responsibility',
-        'One more key achievement',
-      ],
+      title: 'B.E. Information Science and Engineering',
+      company: 'New Horizon College of Engineering',
+      location: 'Bengaluru, India',
+      period: '2023 - 2027',
+      description: ['CGPA: 8.72 / 10'],
     },
     {
-      title: 'Your Job Title',
-      company: 'Company Name',
-      location: 'City, State',
-      period: 'Month Year - Month Year',
-      description: [
-        'Description of your role and accomplishments',
-        'Another accomplishment or responsibility',
-        'One more key achievement',
-      ],
+      title: 'Class XII (CBSE)',
+      company: 'Sri Chaitanya Techno PU College',
+      location: 'Bangalore, India',
+      period: '2022 - 2023',
+      description: ['Percentage: 74.5%'],
+    },
+    {
+      title: 'Class X (CBSE)',
+      company: 'Sri Chaitanya Techno School',
+      location: 'Bangalore, India',
+      period: '2020 - 2021',
+      description: ['Percentage: 78.2%'],
     },
   ];
 
@@ -73,7 +73,7 @@ const Experience = () => {
 
       <div className="container mx-auto px-6 experience-section__content">
         <h2 className="experience-section__title">
-          Experience
+          Experience &amp; Education
         </h2>
 
         <div className="max-w-4xl mx-auto space-y-4">
@@ -100,10 +100,12 @@ const Experience = () => {
                       <span>{experience.period}</span>
                     </div>
 
-                    <div>
-                      <MapPin className="h-4 w-4" />
-                      <span>{experience.location}</span>
-                    </div>
+                    {experience.location && (
+                      <div>
+                        <MapPin className="h-4 w-4" />
+                        <span>{experience.location}</span>
+                      </div>
+                    )}
                   </div>
                 </div>
               </CardHeader>

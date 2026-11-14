@@ -28,6 +28,14 @@ const Projects = lazy(
   () => import("./components/section/Projects"),
 );
 
+const Experience = lazy(
+  () => import("./components/section/Experience"),
+);
+
+const AgentTerminal = lazy(
+  () => import("./components/section/AgentTerminal"),
+);
+
 const Skills = lazy(
   () => import("./components/section/Skills"),
 );
@@ -74,6 +82,14 @@ function HomePage() {
           <SectionLoader height="h-screen" />
         }
       >
+        <Experience />
+      </Suspense>
+
+      <Suspense
+        fallback={
+          <SectionLoader height="h-screen" />
+        }
+      >
         <Skills />
       </Suspense>
 
@@ -83,6 +99,14 @@ function HomePage() {
         }
       >
         <Certifications />
+      </Suspense>
+
+      <Suspense
+        fallback={
+          <SectionLoader height="h-64" />
+        }
+      >
+        <AgentTerminal />
       </Suspense>
     </>
   );

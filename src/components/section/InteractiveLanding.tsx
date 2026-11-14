@@ -10,7 +10,7 @@ import {
 import "./InteractiveLanding.css";
 import "./InteractiveLandingMagicObjects.css";
 
-import armyBombArtifact from "../../assets/magic-shop/army-bomb.svg";
+import armyBombArtifact from "../../assets/magic-shop/microphone.svg";
 import codeMark from "../../assets/magic-shop/code-mark.svg";
 import cassetteArtifact from "../../assets/magic-shop/cassette.svg";
 import shopFamiliarDolphin from "../../assets/magic-shop/shop-familiar-dolphin.png";
@@ -80,14 +80,14 @@ const MODULES: SkillModule[] = [
   {
     id: "form",
     number: "01",
-    title: "FORM",
-    objectName: "LIGHT STICK",
-    homeName: "FORM STATION",
+    title: "VOICE",
+    objectName: "MICROPHONE",
+    homeName: "VOICE STATION",
     summary:
-      "I sculpt fashion accessories and turn soft references into structured, printable objects.",
+      "I build voice-first AI that listens, understands and talks back, in multiple languages and with accessibility at the centre.",
     proof:
-      "3D-printed bags · rapid prototyping · support removal · sanding · hardware",
-    tools: ["Blender", "Bambu Studio", "Silk PLA+", "3D printing"],
+      "speech-to-text · text-to-speech · intent recognition · accessibility-first design",
+    tools: ["Python", "NLP", "Speech recognition", "Machine Learning"],
     accent: "#b99ade",
   },
   {
@@ -97,10 +97,10 @@ const MODULES: SkillModule[] = [
     objectName: "CODE SCREEN",
     homeName: "CODE STATION",
     summary:
-      "I build interactive front-end worlds and useful digital tools with personality.",
+      "I build full-stack apps, AI agents and games, from Python backends to browser canvases.",
     proof:
-      "React portfolios · VS Code themes · playful UI systems · GitHub workflows",
-    tools: ["React", "TypeScript", "CSS", "VS Code", "GitHub"],
+      "AI agents · Smart Waste platform · Electron assistant · CRM dashboard · Arduino sensors",
+    tools: ["Python", "Java", "JavaScript", "MongoDB", "GitHub"],
     accent: "#aebcf0",
   },
   {
@@ -110,10 +110,10 @@ const MODULES: SkillModule[] = [
     objectName: "CASSETTE TAPE",
     homeName: "STORY STATION",
     summary:
-      "I turn concepts into clear stories, campaigns and memorable visual experiences.",
+      "I turn ideas into things people can play with: a tower dungeon crawler and a notebook that writes back.",
     proof:
-      "Case studies · UGC · brand partnerships · creative direction · gamification",
-    tools: ["Figma", "Notion", "UGC", "Brand strategy"],
+      "Ascendant · AI Notebook · puzzles and hint systems · handwriting recognition",
+    tools: ["Canvas", "Game design", "Claude Vision API", "UX"],
     accent: "#8f72bb",
   },
 ];
@@ -666,6 +666,11 @@ const InteractiveLanding = ({ asciiArt }: InteractiveLandingProps) => {
     resetSceneParallax();
   };
 
+  const skipQuest = () => {
+    setCompleted(MODULES.map((m) => m.id));
+    window.setTimeout(() => enterProjects(), 450);
+  };
+
   const enterProjects = () => {
     document.getElementById("projects")?.scrollIntoView({
       behavior: "smooth",
@@ -718,12 +723,12 @@ const InteractiveLanding = ({ asciiArt }: InteractiveLandingProps) => {
             <span className="pixel-panel-label">SHOP QUEST // 01</span>
 
             <h1>
-              Build a<span> creative world.</span>
+              Build AI<span> you can talk to.</span>
             </h1>
 
             <p>
-              Return FORM, CODE and STORY to the Magic Shop terminal.
-              FORM gives shape. CODE gives function. STORY gives meaning.
+              Return VOICE, CODE and STORY to the Magic Shop terminal.
+              VOICE gives it a mouth. CODE gives it function. STORY gives it meaning.
             </p>
 
             <div className="pixel-quest-status" aria-live="polite">
@@ -776,6 +781,16 @@ const InteractiveLanding = ({ asciiArt }: InteractiveLandingProps) => {
                 ? "OPEN PROJECT PORTAL →"
                 : `GATHER ${300 - xp} MORE EUPHORIA`}
             </button>
+
+            {!isComplete && (
+              <button
+                type="button"
+                className="pixel-skip-link"
+                onClick={skipQuest}
+              >
+                OPEN PORTAL NOW · SKIP QUEST →
+              </button>
+            )}
           </section>
 
           <section className="pixel-game-window">
@@ -992,7 +1007,7 @@ const InteractiveLanding = ({ asciiArt }: InteractiveLandingProps) => {
                   className={`pixel-detail-icon pixel-detail-icon-${selectedModule.id}`}
                   aria-hidden="true"
                 >
-                  {selectedModule.id === "form" && "▣"}
+                  {selectedModule.id === "form" && "◉"}
                   {selectedModule.id === "code" && "</>"}
                   {selectedModule.id === "story" && "✦"}
                 </div>

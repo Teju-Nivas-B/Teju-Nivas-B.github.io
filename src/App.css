@@ -913,3 +913,6 @@ body,
   fill: currentColor !important;
   stroke: currentColor !important;
 }
+
+.pixel-skip-link{display:block;margin-top:12px;background:transparent;border:2px dashed currentColor;border-radius:10px;padding:8px 16px;font:inherit;font-size:13px;letter-spacing:.06em;color:inherit;cursor:pointer;opacity:.85}
+.pixel-skip-link:hover{opacity:1;background:#b99ade33}
